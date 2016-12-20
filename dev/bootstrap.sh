@@ -1,6 +1,14 @@
 #!/bin/bash
 
 set -e
+get_remote()
+{
+    
+	if ![ -d /vagrant/dev/ ]; then
+	git clone  https://github.com/coulonpascal/exchange /vagrant
+	fi
+
+}
 
 yum_setup()
 {
@@ -45,12 +53,7 @@ yum_setup()
         rabbitmq-server-3.6.1 \
         libmemcached-devel \
         httpd \
-
-	cd /vagrant 
-	sudo git init 
-	git remote add origin https://github.com/coulonpascal/exchange
-	git pull origin master
-	
+			
     if [ -f /etc/profile.d/settings.sh ]; then
         rm -fr /etc/profile.d/settings.sh
     fi
@@ -185,7 +188,7 @@ service_setup()
   rabbitmqctl reset
   rabbitmqctl start_app
 }
-
+get_remote
 yum_setup
 database_setup
 exchange_setup
