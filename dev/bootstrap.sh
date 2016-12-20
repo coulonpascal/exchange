@@ -53,7 +53,10 @@ yum_setup()
         rabbitmq-server-3.6.1 \
         libmemcached-devel \
         httpd \
-			
+
+	rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+	yum install -y python-pip
+		
     if [ -f /etc/profile.d/settings.sh ]; then
         rm -fr /etc/profile.d/settings.sh
     fi
