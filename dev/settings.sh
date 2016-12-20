@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 IP=$(sed -ne "s/config.vm.network :private_network, ip: *[ ]['\"]\([^'\"]*\)['\"] */\1/p" /vagrant/Vagrantfile | tr -d '[[:space:]]')
 export PATH='/usr/pgsql-9.5/bin':$PATH
 export SITE_URL='http://'"${IP}"'/'
