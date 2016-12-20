@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 
 get_remote()
 {
