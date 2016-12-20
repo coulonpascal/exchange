@@ -46,6 +46,11 @@ yum_setup()
         libmemcached-devel \
         httpd \
 
+	cd /vagrant 
+	sudo git init 
+	git remote add origin https://github.com/coulonpascal/exchange
+	git pull origin master
+	
     if [ -f /etc/profile.d/settings.sh ]; then
         rm -fr /etc/profile.d/settings.sh
     fi
